@@ -9,6 +9,7 @@ exports.handler = async (event, context, cb) => {
   if(method === 'GET') {
   try {
     console.log(event)
+    console.log(context)
     const {data} = await axios.get(Features)
     return {
       statusCode:200,
