@@ -4,9 +4,16 @@
 
 exports.handler = async (event, context, cb) => {
   console.log(context)
+  const method = event.httpMethod
+  if(method !== 'GET'){
+    return {
+      statusCode:400,
+      body:'Not Supoorted Method'
+    }
+  }
   return {
 
     statusCode: 200,
-    body: 'Our First Netlify Function Example',
+    body: 'API Task With Netlify Lambda function ',
   }
 }
