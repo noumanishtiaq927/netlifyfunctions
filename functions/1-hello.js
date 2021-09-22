@@ -3,17 +3,20 @@
 // const person = { name: 'john' }
 
 exports.handler = async (event, context, cb) => {
-  console.log(context)
+  console.log(event)
   const method = event.httpMethod
-  if(method !== 'GET'){
+  const id = event.queryStringParameters.id
+  console.log(id)
+  if(method === 'POST'){
     return {
-      statusCode:400,
-      body:'Not Supoorted Method'
+      statusCode:404,
+      body:`Hello ${id}`
     }
-  }
+  }else if(method === 'GET')
   return {
 
     statusCode: 200,
-    body: 'API Task With Netlify Lambda function ',
+    body: 'Yes ! you got it ',
   }
 }
+  
